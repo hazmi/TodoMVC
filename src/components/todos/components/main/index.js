@@ -2,10 +2,10 @@ import React from 'react';
 import { TodoList } from './components/todo-list';
 import { ToggleAll } from './components/toggle-all';
 
-export const Main = () => (
+export const Main = ({ data = [] }) => (
   <section className="main">
     <ToggleAll />
-    <TodoList />
+    <TodoList data={data} />
   </section>
 );
 
