@@ -1,8 +1,11 @@
 import React from 'react';
 
-export const TodoCount = () => (
+const pluralize = (count, word) => count === 1 ? word : `${word}s`;
+
+export const TodoCount = ({ count }) => (
   <span className="todo-count">
-    <strong>1</strong> item left
+    <strong>{count}</strong>
+    {` ${pluralize(count, 'item')} left `}
   </span>
 );
 
