@@ -6,6 +6,7 @@ export const Footer = () => (
   <footer className="footer">
     <TodoCount />
     <Filters />
+    <button className="clear-completed">Clear Completed</button>
   </footer>
 );
 
