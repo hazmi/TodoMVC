@@ -11,7 +11,7 @@
     -moz-text-rendering: optimizeLegibility;
     text-rendering: optimizeLegibility;
   }
-  &__new-todo {
+  input {
     position: relative;
     margin: 0;
     width: 100%;
@@ -27,5 +27,21 @@
     background: rgba(0, 0, 0, 0.003);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &::-webkit-input-placeholder {
+      font-style: italic;
+      font-weight: 300;
+      color: #e6e6e6;
+    }
+    &::-moz-placeholder {
+      font-style: italic;
+      font-weight: 300;
+      color: #e6e6e6;
+    }
+    &::input-placeholder {
+      font-style: italic;
+      font-weight: 300;
+      color: #e6e6e6;
+    }
   }
 }
