@@ -18,10 +18,11 @@ export const Todos = () => {
   };
 
   const removeTodo = (id) => {
-    dispatch({
-      type: 'remove',
-      id
-    });
+    dispatch({ type: 'remove', id });
+  };
+
+  const toggleCompleted = (id, completed) => {
+    dispatch({ type: 'toggleCompleted', id, completed });
   };
 
   return (
@@ -30,8 +31,11 @@ export const Todos = () => {
       <Main
         data={state}
         removeTodo={removeTodo}
+        toggleCompleted={toggleCompleted}
       />
-      <Footer data={state} />
+      <Footer
+        data={state}
+      />
     </section>
   );
 };

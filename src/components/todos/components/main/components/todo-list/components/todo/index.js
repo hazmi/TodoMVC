@@ -5,6 +5,7 @@ export const Todo = ({
   completed,
   children,
   handleRemove,
+  handleToggle,
   isLast,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -31,7 +32,12 @@ export const Todo = ({
       ].join(' ')}
     >
       <div className="todo__view">
-        <input className="todo__toggle" type="checkbox" defaultChecked={completed} />
+        <input
+          className="todo__toggle"
+          type="checkbox"
+          checked={completed}
+          onChange={handleToggle}
+        />
         <label
           className="todo__label"
           onDoubleClick={handleEdit}
