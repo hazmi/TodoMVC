@@ -29,6 +29,10 @@ export const Todos = () => {
     dispatch({ type: 'clearCompleted' });
   };
 
+  const toggleAll = (completed) => {
+    dispatch({ type: 'toggleAll', completed });
+  };
+
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
@@ -36,6 +40,7 @@ export const Todos = () => {
         data={state}
         removeTodo={removeTodo}
         toggleCompleted={toggleCompleted}
+        toggleAll={toggleAll}
       />
       <Footer
         data={state}

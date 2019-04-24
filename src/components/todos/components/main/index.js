@@ -5,10 +5,13 @@ import { ToggleAll } from './components/toggle-all';
 export const Main = ({
   data = [],
   removeTodo,
-  toggleCompleted
+  toggleCompleted,
+  toggleAll
 }) => (
   <section className="main">
-    <ToggleAll />
+    <ToggleAll
+      toggleAll={toggleAll}
+    />
     <TodoList
       data={data}
       removeTodo={removeTodo}

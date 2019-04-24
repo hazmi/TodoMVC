@@ -26,6 +26,14 @@ export const reducer = (state, action) => {
     case 'clearCompleted':
       return state.filter(item => !item.completed);
 
+    case 'toggleAll':
+      return state.map((item) => {
+        return {
+          ...item,
+          completed: action.completed
+        };
+      });
+
     default:
       throw new Error();
   }
