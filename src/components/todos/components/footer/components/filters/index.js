@@ -1,22 +1,26 @@
 import React from 'react';
+import { Item } from './components/filter-item';
 
-export const Filters = () => (
+export const Filters = ({ filterActive }) => (
   <ul className="filters">
-    <li>
-      <a href="/" className="selected">
-        All
-      </a>
-    </li>
-    <li>
-      <a href="/active">
-        Active
-      </a>
-    </li>
-    <li>
-      <a href="/completed">
-        Completed
-      </a>
-    </li>
+    <Item
+      to="#/"
+      selected={(filterActive === 'all')}
+    >
+      All
+    </Item>
+    <Item
+      to="#/active"
+      selected={(filterActive === 'active')}
+    >
+      Active
+    </Item>
+    <Item
+      to="#/completed"
+      selected={(filterActive === 'completed')}
+    >
+      Completed
+    </Item>
   </ul>
 );
 

@@ -1,13 +1,22 @@
-import React, { useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
+import { Router } from 'director/build/director';
 import { Header } from './components/header';
 import { Main } from './components/main';
 import { Footer } from './components/footer';
 import { reducer } from './reducer';
 
-const initialState = [];
-
 export const Todos = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [todos, dispatch] = useReducer(reducer, []);
+  const [filterActive, setFilterActive] = useState('all');
+
+  useEffect(() => {
+    const router = Router({
+      '/': () => setFilterActive('all'),
+      '/active': () => setFilterActive('active'),
+      '/completed': () => setFilterActive('completed')
+    });
+    router.init('/');
+  }, true);
 
   const addTodo = (value) => {
     dispatch({
@@ -37,19 +46,31 @@ export const Todos = () => {
     dispatch({ type: 'toggleAll', completed });
   };
 
+  const filteredTodos = todos.filter((todo) => {
+    switch (filterActive) {
+      case 'active':
+        return !todo.completed;
+      case 'completed':
+        return todo.completed;
+      default:
+        return true;
+    }
+  });
+
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
       <Main
-        data={state}
+        data={filteredTodos}
         editTodo={editTodo}
         removeTodo={removeTodo}
         toggleCompleted={toggleCompleted}
         toggleAll={toggleAll}
       />
       <Footer
-        data={state}
+        data={todos}
         clearCompleted={clearCompleted}
+        filterActive={filterActive}
       />
     </section>
   );

@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const Item = ({ selected, children }) => (
+export const Item = ({
+  selected,
+  children,
+  to
+}) => (
   <li>
-    <a href="/" className={selected ? 'selected' : ''}>
+    <a href={to} className={selected ? 'selected' : ''}>
       {children}
     </a>
   </li>
