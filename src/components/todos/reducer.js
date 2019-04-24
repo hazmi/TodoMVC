@@ -8,6 +8,8 @@ export const reducer = (state, action) => {
           value: action.value,
         }
       ];
+    case 'remove':
+      return state.filter((item) => item.id !== action.id);
     default:
       throw new Error();
   }

@@ -4,7 +4,8 @@ import './index.scss';
 export const Todo = ({
   completed,
   children,
-  isLast
+  handleRemove,
+  isLast,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const inputRef = useRef(null);
@@ -37,7 +38,10 @@ export const Todo = ({
         >
           {children}
         </label>
-        <button className="todo__destroy"/>
+        <button
+          className="todo__destroy"
+          onClick={handleRemove}
+        />
       </div>
       <input
         ref={inputRef}

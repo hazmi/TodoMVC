@@ -17,10 +17,20 @@ export const Todos = () => {
     });
   };
 
+  const removeTodo = (id) => {
+    dispatch({
+      type: 'remove',
+      id
+    });
+  };
+
   return (
     <section className="todoapp">
       <Header addTodo={addTodo} />
-      <Main data={state} />
+      <Main
+        data={state}
+        removeTodo={removeTodo}
+      />
       <Footer data={state} />
     </section>
   );
