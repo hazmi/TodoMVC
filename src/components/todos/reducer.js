@@ -23,6 +23,9 @@ export const reducer = (state, action) => {
         };
       });
 
+    case 'clearCompleted':
+      return state.filter(item => !item.completed);
+
     default:
       throw new Error();
   }
