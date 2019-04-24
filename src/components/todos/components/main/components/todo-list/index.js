@@ -4,6 +4,7 @@ import './index.scss';
 
 export const TodoList = ({
   data = [],
+  editTodo,
   removeTodo,
   toggleCompleted
 }) => (
@@ -12,6 +13,7 @@ export const TodoList = ({
       <Todo
         key={item.id}
         completed={item.completed}
+        handleEdit={value => editTodo(item.id, value)}
         handleRemove={() => removeTodo(item.id)}
         handleToggle={() => toggleCompleted(item.id, !item.completed)}
       >

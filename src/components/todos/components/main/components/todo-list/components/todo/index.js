@@ -1,9 +1,13 @@
 import React, { useState, useRef } from 'react';
 import './index.scss';
 
+const ENTER_KEY = 13;
+const ESCAPE_KEY = 27;
+
 export const Todo = ({
   completed,
   children,
+  handleEdit,
   handleRemove,
   handleToggle,
   isLast,
@@ -11,7 +15,7 @@ export const Todo = ({
   const [isEditing, setIsEditing] = useState(false);
   const inputRef = useRef(null);
 
-  const handleEdit = () => {
+  const activateEdit = () => {
     setIsEditing(true);
     setTimeout(() => {
       inputRef.current.focus();
@@ -20,6 +24,17 @@ export const Todo = ({
 
   const handleSubmit = () => {
     setIsEditing(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.which === ESCAPE_KEY) {
+      e.target.value = children;
+      e.target.blur();
+    }
+    if (e.which === ENTER_KEY) {
+      handleEdit(e.target.value);
+      e.target.blur();
+    }
   };
 
   return (
@@ -40,7 +55,7 @@ export const Todo = ({
         />
         <label
           className="todo__label"
-          onDoubleClick={handleEdit}
+          onDoubleClick={activateEdit}
         >
           {children}
         </label>
@@ -53,7 +68,9 @@ export const Todo = ({
         ref={inputRef}
         type="text"
         className="todo__edit"
+        defaultValue={children}
         onBlur={handleSubmit}
+        onKeyDown={handleKeyDown}
       />
     </li>
   );

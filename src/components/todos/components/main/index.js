@@ -4,6 +4,7 @@ import { ToggleAll } from './components/toggle-all';
 
 export const Main = ({
   data = [],
+  editTodo,
   removeTodo,
   toggleCompleted,
   toggleAll
@@ -14,6 +15,7 @@ export const Main = ({
     />
     <TodoList
       data={data}
+      editTodo={editTodo}
       removeTodo={removeTodo}
       toggleCompleted={toggleCompleted}
     />

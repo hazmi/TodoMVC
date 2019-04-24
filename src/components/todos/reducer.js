@@ -10,6 +10,16 @@ export const reducer = (state, action) => {
         }
       ];
 
+    case 'edit':
+      return state.map((item) => {
+        if (item.id !== action.id) return item;
+
+        return {
+          ...item,
+          value: action.value
+        };
+      });
+
     case 'remove':
       return state.filter(item => item.id !== action.id);
 

@@ -17,6 +17,10 @@ export const Todos = () => {
     });
   };
 
+  const editTodo = (id, value) => {
+    dispatch({ type: 'edit', id, value });
+  };
+
   const removeTodo = (id) => {
     dispatch({ type: 'remove', id });
   };
@@ -38,6 +42,7 @@ export const Todos = () => {
       <Header addTodo={addTodo} />
       <Main
         data={state}
+        editTodo={editTodo}
         removeTodo={removeTodo}
         toggleCompleted={toggleCompleted}
         toggleAll={toggleAll}
