@@ -6,7 +6,7 @@ export const TodoList = ({ data = [] }) => (
   <ul className="todo-list">
     {data.map((item) => (
       <Todo key={item.id} completed={item.completed}>
-        {item.label}
+        {item.value}
       </Todo>
     ))}
   </ul>

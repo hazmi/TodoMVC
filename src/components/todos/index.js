@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { Header } from './components/header';
 import { Main } from './components/main';
 import { Footer } from './components/footer';
+import { reducer } from './reducer';
 
-const dummyData = [
-  { id: 1, completed: false, label: 'Lorem' },
-  { id: 2, completed: false, label: 'Ipsum' },
-  { id: 3, completed: false, label: 'Dolor' },
-  { id: 4, completed: true, label: 'Sit Amet' },
-];
+const initialState = [];
 
 export const Todos = () => {
-  const [data, setData] = useState(dummyData);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const addTodo = (value) => {
+    dispatch({
+      type: 'add',
+      id: (new Date()).toString(),
+      value
+    });
+  };
+
   return (
     <section className="todoapp">
-      <Header />
-      <Main data={data} />
-      <Footer data={data} />
+      <Header addTodo={addTodo} />
+      <Main data={state} />
+      <Footer data={state} />
     </section>
   );
 };
