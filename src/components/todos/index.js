@@ -12,7 +12,7 @@ export const Todos = () => {
   const addTodo = (value) => {
     dispatch({
       type: 'add',
-      id: (new Date()).toString(),
+      id: '_' + Math.random().toString(36).substr(2, 9),
       value
     });
   };
