@@ -1,5 +1,6 @@
 import React from 'react';
 import { Item } from './components/filter-item';
+import "./index.scss";
 
 export const Filters = ({ filterActive }) => (
   <ul className="filters">
