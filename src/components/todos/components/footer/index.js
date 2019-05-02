@@ -1,6 +1,7 @@
 import React from 'react';
 import { TodoCount } from './components/todo-count';
 import { Filters } from './components/filters';
+import "./index.scss";
 
 export const Footer = ({
   data = [],
