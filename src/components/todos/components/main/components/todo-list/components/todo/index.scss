@@ -16,6 +16,10 @@
     border: none; /* Mobile Safari */
     -webkit-appearance: none;
     appearance: none;
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      background: none;
+      height: 40px;
+    }
   }
   &__label {
     word-break: break-all;
