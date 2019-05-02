@@ -1,27 +1,27 @@
 import React from 'react';
-import { Item } from './components/filter-item';
+import { FilterItem } from './components/filter-item';
 import "./index.scss";
 
 export const Filters = ({ filterActive }) => (
   <ul className="filters">
-    <Item
+    <FilterItem
       to="#/"
       selected={(filterActive === 'all')}
     >
       All
-    </Item>
-    <Item
+    </FilterItem>
+    <FilterItem
       to="#/active"
       selected={(filterActive === 'active')}
     >
       Active
-    </Item>
-    <Item
+    </FilterItem>
+    <FilterItem
       to="#/completed"
       selected={(filterActive === 'completed')}
     >
       Completed
-    </Item>
+    </FilterItem>
   </ul>
 );
 
