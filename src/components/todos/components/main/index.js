@@ -1,6 +1,7 @@
 import React from 'react';
 import { TodoList } from './components/todo-list';
 import { ToggleAll } from './components/toggle-all';
+import "./index.scss";
 
 export const Main = ({
   data = [],

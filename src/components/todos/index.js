@@ -4,6 +4,7 @@ import { Header } from './components/header';
 import { Main } from './components/main';
 import { Footer } from './components/footer';
 import { reducer } from './reducer';
+import "./index.scss";
 
 export const Todos = () => {
   const [todos, dispatch] = useReducer(reducer, []);
